@@ -24,14 +24,14 @@ curl -fsSL https://pyenv.run | bash >/dev/null
 sudo apt-get -qq install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # nvm
-curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash >/dev/null
+curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash >/dev/null
 
 # docker
 curl -fsSL https://get.docker.com | sh >/dev/null
 sudo usermod -aG docker $(whoami)
 
 # docker-compose
-sudo curl -fsSL "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose >/dev/null
+sudo curl -fsSL "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose >/dev/null
 sudo chmod +x /usr/local/bin/docker-compose
 
 # change shell to zsh
