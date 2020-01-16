@@ -36,3 +36,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # change shell to zsh
 chsh -s $(which zsh)
+
+echo "###"
+echo "Done! open a new shell, or run:"
+echo "su -l $(whoami)"
