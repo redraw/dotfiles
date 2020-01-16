@@ -1,6 +1,6 @@
 # .dotfiles
 
-These git repo is meant to be used as a bare repo, with `$HOME` as working dir.
+This git repo is meant to be used as a bare repo, with `$HOME` as working dir.
 
 Handy installer here,
 ```bash
