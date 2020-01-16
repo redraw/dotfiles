@@ -8,9 +8,10 @@ $ curl https://gist.githubusercontent.com/redraw/e0f11412c2983364e27b1a79299307c
 ```
 
 #### Try it on Docker
-Try the installer inside a docker container built from [this dockerfile](https://gist.github.com/redraw/e0f11412c2983364e27b1a79299307c2#file-tester-dockerfile) (user/pass `tester`),
+You can try it inside a docker container built from [this dockerfile](https://gist.github.com/redraw/e0f11412c2983364e27b1a79299307c2#file-tester-dockerfile) (user/pass `tester`)
 ```bash
 $ docker run -it --rm redraw/dotfiles
+tester@12b3ee17cbea:~$ bash .bin/setup.sh
 ```
 
 Idea taken from [here](https://www.atlassian.com/git/tutorials/dotfiles) :-)
