@@ -1,1 +1,8 @@
-words () { http api.datamuse.com/words "$1" max=="${2:-5}" | jq ".[] | .word" }
+words () { 
+    http api.datamuse.com/words "$1" max=="${2:-5}" | jq ".[] | .word" 
+}
+
+genpass () {
+    gpg -a --gen-random 0 "${1:-12}"
+}
+

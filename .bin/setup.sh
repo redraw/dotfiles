@@ -43,8 +43,8 @@ sudo curl -fsSL "https://github.com/docker/compose/releases/download/1.25.0/dock
 sudo chmod +x /usr/local/bin/docker-compose
 
 # change shell to zsh
+info "Changing shell to zsh (it will ask for your user password)"
 chsh -s $(which zsh)
 
-info "###"
 info "Done! open a new shell, or run:"
 info "su -l $(whoami)"
