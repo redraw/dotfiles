@@ -1,8 +1,13 @@
-words () { 
+# function names starts with comma
+# that way we prevent overwhelming the global namespace
+# plus, it makes it easier to find them: just type "," + <tab> key
+# @brand-rhodes style
+
+,words () { 
     http api.datamuse.com/words "$1" max=="${2:-5}" | jq ".[] | .word" 
 }
 
-genpass () {
+,genpass () {
     gpg -a --gen-random 0 "${1:-12}"
 }
 
