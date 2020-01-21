@@ -1,11 +1,11 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'
-" NERD tree will be loaded on the first invocation of NERDTreeToggle command
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'dracula/vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 " Plug 'klen/python-mode'
 call plug#end()
 
@@ -28,7 +28,6 @@ map tp :tabp<CR>
 map tm :tabm 
 map tt :tabnew 
 map ts :tab split<CR>
-noremap ,t :NERDTreeToggle<CR>
 nmap =j :%!python -m json.tool<CR>
 
 set pastetoggle=<F3>
