@@ -50,7 +50,7 @@ fi
 
 # docker
 info "Installing docker..."
-if [ ! -x $(command -v docker) ]; then
+if [ ! -x "$(command -v docker)" ]; then
     curl -fsSL https://get.docker.com | sh >/dev/null
     sudo usermod -aG docker $(whoami)
 else
@@ -59,7 +59,7 @@ fi
 
 # docker-compose
 info "Installing docker-compose..."
-if [ ! -x $(command -v docker-compose) ]; then
+if [ ! -x "$(command -v docker-compose)" ]; then
     sudo curl -fsSL "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose >/dev/null
     sudo chmod +x /usr/local/bin/docker-compose
 else

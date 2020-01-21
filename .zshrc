@@ -9,6 +9,8 @@ plugins=(
     fzf
 )
 
+SPACESHIP_DOCKER_SHOW=false
+
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.functions ]] && source ~/.functions
