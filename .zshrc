@@ -18,3 +18,4 @@ source $ZSH/oh-my-zsh.sh
 if command -v cowsay &>/dev/null; then
     uptime | cowsay -f $(ls /usr/share/cowsay/cows/{gnu,tux}.cow | shuf | head -n1) 
 fi
+

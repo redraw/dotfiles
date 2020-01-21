@@ -6,8 +6,7 @@ info "Installing packages required for setup..."
 sudo apt-get update -qq && sudo apt-get install -qq \
     git \
     zsh \
-    curl \
-    fzf
+    curl
 
 # oh-my-zsh
 info "Installing oh-my-zsh"
@@ -24,6 +23,15 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then
     git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" >/dev/null
     ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+else
+    echo "skipped"
+fi
+
+# fzf
+info "Installing fzf"
+if [ ! -d $HOME/.fzf ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --bin
 else
     echo "skipped"
 fi
