@@ -10,7 +10,7 @@ sudo apt-get update -qq && sudo apt-get install -qq \
     fzf
 
 # oh-my-zsh
-info "Installing oh-my-zsh..."
+info "Installing oh-my-zsh"
 if [ ! -d $HOME/.oh-my-zsh ]; then
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh >/dev/null
     mv $HOME/.zshrc{.pre-oh-my-zsh,}
@@ -19,7 +19,7 @@ else
 fi
 
 # spaceship-theme
-info "Installing spaceship-theme..."
+info "Installing spaceship-theme"
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then
     git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" >/dev/null
@@ -29,7 +29,7 @@ else
 fi
 
 # pyenv
-info "Installing pyenv..."
+info "Installing pyenv"
 if [ ! -d $HOME/.pyenv ]; then
     curl -fsSL https://pyenv.run | bash >/dev/null
 else
@@ -41,7 +41,7 @@ info "Installing Python build dependencies..."
 sudo apt-get -qq install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # nvm
-info "Installing nvm..."
+info "Installing nvm"
 if [ ! -d $HOME/.nvm ]; then
     curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash >/dev/null
 else
@@ -56,8 +56,15 @@ else
     echo "skipped"
 fi
 
+info "Installing vim-plug"
+if [ ! -d $HOME/.vim/autoload/plug.vim ]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+    echo "skipped"
+fi
+
 # docker
-info "Installing docker..."
+info "Installing docker"
 if [ ! -x "$(command -v docker)" ]; then
     curl -fsSL https://get.docker.com | sh >/dev/null
     sudo usermod -aG docker $(whoami)
@@ -66,7 +73,7 @@ else
 fi
 
 # docker-compose
-info "Installing docker-compose..."
+info "Installing docker-compose"
 if [ ! -x "$(command -v docker-compose)" ]; then
     sudo curl -fsSL "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose >/dev/null
     sudo chmod +x /usr/local/bin/docker-compose
