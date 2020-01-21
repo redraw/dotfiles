@@ -29,7 +29,7 @@ else
 fi
 
 # pyenv
-info "Installing pyenv"
+info "Installing pyenv..."
 if [ ! -d $HOME/.pyenv ]; then
     curl -fsSL https://pyenv.run | bash >/dev/null
 else
@@ -44,6 +44,14 @@ sudo apt-get -qq install --no-install-recommends make build-essential libssl-dev
 info "Installing nvm..."
 if [ ! -d $HOME/.nvm ]; then
     curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash >/dev/null
+else
+    echo "skipped"
+fi
+
+# tmux package manager
+info "Installing Tmux Package Manager"
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 else
     echo "skipped"
 fi
