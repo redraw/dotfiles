@@ -4,21 +4,19 @@ pkgs=(
     ffmpeg
     sox
     htop
+    rclone
     iftop
     jq
     ipcalc
     lm-sensors
     lynx
-    brasero
     flameshot
     tmux
     tree
+    adb
     picocom
     screenkey
     network-manager-openvpn-gnome
-    aircrack-ng
-    hashcat
-    adb
 )
 
 sudo apt install $pkgs
