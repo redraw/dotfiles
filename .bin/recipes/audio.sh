@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Install required dependencies if needed
 sudo apt-get install apt-transport-https gpgv wget

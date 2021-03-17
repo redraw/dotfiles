@@ -4,6 +4,7 @@ ZSH_THEME="spaceship"
 HIST_STAMPS="yyyy-mm-dd"
 
 plugins=(
+    z
     pyenv
     nvm
     fzf
@@ -14,6 +15,8 @@ SPACESHIP_DOCKER_SHOW=false
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.functions ]] && source ~/.functions
+
+export PATH=$PATH:~/.local/bin
 
 if command -v cowsay &>/dev/null; then
     uptime | cowsay -f $(ls /usr/share/cowsay/cows/{gnu,tux}.cow | shuf | head -n1) 
