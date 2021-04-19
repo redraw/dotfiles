@@ -13,5 +13,5 @@
 
 ,pwnedpass () {
     digest=$(echo -n $1 | sha1sum | head -c40)
-    curl -sL api.pwnedpasswords.com/range/${digest:0:5} | grep -i ${digest:5}
+    curl -sL api.pwnedpasswords.com/range/${digest:0:5} | grep -i ${digest:5} | cut -d":" -f2
 }
