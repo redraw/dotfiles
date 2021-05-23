@@ -1,8 +1,10 @@
 #!/bin/bash
 
+GIT_DIR="$HOME/.dotfiles.git"
+
 # clone repo
-git clone --bare git@github.com:redraw/dotfiles.git $HOME/.dotfiles.git
-dotfiles () { git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME "$@"; }
+git clone --bare https://github.com/redraw/dotfiles.git $GIT_DIR
+dotfiles () { git --git-dir=$GIT_DIR --work-tree=$HOME "$@"; }
 
 # backup
 for file in $(dotfiles ls-tree --name-only HEAD); do 
