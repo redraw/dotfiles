@@ -1,6 +1,6 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'posva/vim-vue'

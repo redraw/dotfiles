@@ -4,21 +4,23 @@ ZSH_THEME="spaceship"
 HIST_STAMPS="yyyy-mm-dd"
 
 plugins=(
-    z
+    git
     pyenv
-    nvm
+    kubectl
     fzf
+    z
 )
 
 SPACESHIP_DOCKER_SHOW=false
+COWSAY_UPTIME_SHOW=true
 
-source $ZSH/oh-my-zsh.sh
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.functions ]] && source ~/.functions
+[[ -f ~/.customrc ]] && source ~/.customrc # untracked
 
-export PATH=$PATH:~/.local/bin
+source $ZSH/oh-my-zsh.sh
 
-if command -v cowsay &>/dev/null; then
+if [[ $COWSAY_UPTIME_SHOW && `command -v cowsay` ]]; then
     uptime | cowsay -f $(ls /usr/share/cowsay/cows/{gnu,tux}.cow | shuf | head -n1) 
 fi
 
