@@ -14,3 +14,20 @@ You can try it inside a docker container (user/pass `tester`)
 $ docker run -it --rm redraw/dotfiles
 ```
 
+### Install recipes
+
+You can select which [recipes](./.dotfiles/recipes) to install by running,
+
+```bash
+$ .dotfiles/setup.sh
+```
+
+### Usage
+
+`dotfiles` command is just an alias to `git` using `$HOME/.dotfiles.git` as git dir, and `$HOME` as work tree.
+
+```bash
+$ dotfiles add <some-file>
+$ dotfiles commit -m "updated x file"
+$ dotfiles push
+```
