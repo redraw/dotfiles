@@ -15,6 +15,8 @@ plugins=(
 SPACESHIP_DOCKER_SHOW=false
 COWSAY_UPTIME_SHOW=true
 
+export PATH=$PATH:"$HOME/.local/bin"
+
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.functions ]] && source ~/.functions
 [[ -f ~/.customrc ]] && source ~/.customrc # untracked

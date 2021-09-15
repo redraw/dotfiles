@@ -8,6 +8,7 @@ info "Installing packages required for setup..."
 sudo apt-get install -qq \
     git \
     zsh \
+    wget \
     curl \
     dialog
 
