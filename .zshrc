@@ -12,10 +12,12 @@ plugins=(
     z
 )
 
-SPACESHIP_DOCKER_SHOW=false
-COWSAY_UPTIME_SHOW=true
-
 export PATH=$PATH:"$HOME/.local/bin"
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+
+SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_VENV_SHOW=false
+COWSAY_UPTIME_SHOW=true
 
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.functions ]] && source ~/.functions
