@@ -20,7 +20,7 @@ set shiftwidth=4
 " on pressing tab, insert 4 spaces
 set expandtab
 " lang specific
-autocmd FileType yaml,json,markdown,terraform,html,css,dosini setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+autocmd FileType yaml,json,markdown,terraform,html,css,javascript,dosini setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd BufNewFile,BufRead */.kube/config set filetype=yaml
 
 "colorscheme elflord
@@ -32,10 +32,11 @@ set relativenumber
 " json pretty-print
 nmap =j :%!python -m json.tool<CR>
 
+" buffertabs
 set hidden
 nnoremap <C-k> :bnext<CR>
 nnoremap <C-j> :bprev<CR>
-nnoremap <C-x> :bd!<CR>
+nnoremap <C-q> :bd!<CR>
 
 " git
 set splitright
@@ -51,3 +52,6 @@ set undodir=~/.vim/undovim
 
 set pastetoggle=<F3>
 
+" Surround like delete/change surrounding function calls
+nmap <silent> dsf ds)db
+nnoremap <silent> csf [(cb
