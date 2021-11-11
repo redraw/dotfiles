@@ -7,8 +7,8 @@ plugins=(
     git
     pyenv
     nvm
-    kubectl
     fzf
+    gh
     z
 )
 

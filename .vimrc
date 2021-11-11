@@ -28,6 +28,7 @@ colorscheme dracula
 
 " line numbers
 set relativenumber
+set foldmethod=syntax
 
 " json pretty-print
 nmap =j :%!python -m json.tool<CR>
