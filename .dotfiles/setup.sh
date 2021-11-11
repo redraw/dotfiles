@@ -12,6 +12,10 @@ sudo apt-get install -qq \
     curl \
     dialog
 
+# configure git
+git config --global user.email $(read -p "[git] email: " email; echo $email)
+git config --global user.name $(read -p "[git] username: " name; echo $name)
+
 options=()
 
 for recipe in $(ls $RECIPES); do
