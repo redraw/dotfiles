@@ -10,6 +10,7 @@ sudo apt-get install -qq \
     zsh \
     wget \
     curl \
+    gpg \
     dialog
 
 # configure git
