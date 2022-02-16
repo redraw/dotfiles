@@ -3,7 +3,7 @@
 GIT_DIR="$HOME/.dotfiles.git"
 
 # clone repo
-git clone --bare https://github.com/redraw/dotfiles.git $GIT_DIR
+git clone --bare git@github.com:redraw/dotfiles.git $GIT_DIR
 dotfiles () { git --git-dir=$GIT_DIR --work-tree=$HOME "$@"; }
 
 # backup

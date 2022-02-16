@@ -14,13 +14,15 @@ sudo apt-get install -qq \
     dialog
 
 # configure git
-git config --global user.email $(read -p "[git] email: " email; echo $email)
-git config --global user.name $(read -p "[git] username: " name; echo $name)
+if [ ! -f $HOME/.gitconfig ]; then
+    git config --global user.email $(read -p "[git] email: " email; echo $email)
+    git config --global user.name $(read -p "[git] username: " name; echo $name)
+fi
 
 options=()
 
 for recipe in $(ls $RECIPES); do
-    options+=($recipe "" on)
+    options+=($recipe "" off)
 done
 
 for recipe in $(dialog --stdout --checklist "Recipes from $RECIPES:" 0 0 0 "${options[@]}"); do
