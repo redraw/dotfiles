@@ -6,6 +6,7 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
     git
     pyenv
+    tmux
     nvm
     fzf
     gh
@@ -14,6 +15,7 @@ plugins=(
 
 export PATH=$PATH:"$HOME/.local/bin"
 export VIRTUAL_ENV_DISABLE_PROMPT=true
+export EDITOR=vim
 
 SPACESHIP_DOCKER_SHOW=false
 SPACESHIP_VENV_SHOW=false

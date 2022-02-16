@@ -5,7 +5,8 @@ RECIPES="$HOME/.dotfiles/recipes"
 
 # base packages
 info "Installing packages required for setup..."
-sudo apt-get install -qq \
+sudo apt update
+sudo apt install -qq \
     git \
     zsh \
     wget \
