@@ -6,8 +6,8 @@ else
     echo "skipped"
 fi
 
-# install system deps to build YCM
-sudo apt install cmake python3-dev
+# install vim, and system deps to build YCM
+sudo apt install vim-gtk3 cmake python3-dev
 
 # install plugins
-vim +'PlugInstall --sync' +qa
+vim +'PlugInstall' +qa
