@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 GIT_DIR="$HOME/.dotfiles.git"
 
