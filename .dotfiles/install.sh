@@ -3,7 +3,7 @@
 GIT_DIR="$HOME/.dotfiles.git"
 
 # clone repo
-git clone --bare git@github.com:redraw/dotfiles.git $GIT_DIR
+git clone --bare https://github.com/redraw/dotfiles $GIT_DIR
 dotfiles () { git --git-dir=$GIT_DIR --work-tree=$HOME "$@"; }
 
 # backup
@@ -14,5 +14,6 @@ done
 # checkout
 dotfiles checkout
 dotfiles config status.showUntrackedFiles no
+dotfiles remote set-url origin git@github.com:redraw/dotfiles.git
 
 echo -e "\e[1m install tools running .dotfiles/setup.sh \e[0m"
