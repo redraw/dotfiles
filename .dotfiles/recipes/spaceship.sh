@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d $ZSH_CUSTOM/themes/spaceship-prompt ]; then

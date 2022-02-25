@@ -1,8 +1,11 @@
 #!/bin/bash
+set -x
 
 pkgs=(
     ffmpeg
     tlp
+    ncdu
+    xsel
     sox
     htop
     rclone
@@ -11,7 +14,6 @@ pkgs=(
     ipcalc
     lm-sensors
     lynx
-    flameshot
     tmux
     tree
     adb

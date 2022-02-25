@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 if [ ! -d $HOME/.pyenv ]; then
     curl -fsSL https://pyenv.run | bash >/dev/null

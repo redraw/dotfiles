@@ -18,7 +18,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=true
 export EDITOR=vim
 
 SPACESHIP_DOCKER_SHOW=false
-SPACESHIP_VENV_SHOW=false
 COWSAY_UPTIME_SHOW=true
 
 [[ -f ~/.aliases ]] && source ~/.aliases
@@ -31,3 +30,5 @@ if [[ $COWSAY_UPTIME_SHOW && `command -v cowsay` ]]; then
     uptime | cowsay -f $(ls /usr/share/cowsay/cows/{gnu,tux}.cow | shuf | head -n1) 
 fi
 
+autoload -Uz compinit && compinit
+unsetopt completealiases

@@ -3,8 +3,8 @@
 # plus, it makes it easier to find them: just type "," + <tab> key
 # @brandon-rhodes style
 
-,words () { 
-    http api.datamuse.com/words "$1" max=="${2:-5}" | jq ".[] | .word" 
+,words () {
+    http api.datamuse.com/words "$1" max=="${2:-5}" | jq ".[] | .word"
 }
 
 ,genpass () {
@@ -22,4 +22,11 @@
 
 ,manex() {
     man --pager="less -p ^EXAMPLE" $1
+}
+
+,colors () {
+  for i in {0..255}; do
+    printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ;
+    if ! (( ($i + 1 ) % 8 )); then echo ; fi ;
+  done
 }
