@@ -8,7 +8,7 @@ git clone --bare https://github.com/redraw/dotfiles $GIT_DIR
 dotfiles () { git --git-dir=$GIT_DIR --work-tree=$HOME "$@"; }
 
 # backup
-for file in $(dotfiles ls-tree --name-only HEAD); do 
+for file in $(dotfiles ls-tree -r --name-only HEAD); do
   mv -vf $file $file.bak 2>/dev/null
 done
 

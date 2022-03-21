@@ -7,11 +7,15 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jesseleite/vim-agriculture'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdtree'
+Plug 'liuchengxu/vista.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'chrisbra/unicode.vim'
 Plug 'hashivim/vim-terraform'
+Plug 'sheerun/vim-polyglot'
+Plug 'honza/vim-snippets'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -53,6 +57,9 @@ set signcolumn=yes
 set list listchars=tab:>·,trail:~,extends:>,precedes:<,space:·
 highlight SpecialKey ctermfg=darkgrey
 
+" newline between yanks
+set cpoptions+=>
+
 " include dashes for text-objects
 set iskeyword+=-
 
@@ -63,10 +70,15 @@ set splitright
 
 " backup history
 set undofile
-set undodir=~/.vim/undovim
+if !has("nvim")
+set undodir=~/.vim/undo
+endif
 
 " default updatetime 4000ms is not good for async update
 set updatetime=250
+
+" already been welcomed
+set shortmess=I
 
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#tagbar#flags = 'f'
@@ -82,6 +94,9 @@ let g:black_linelength = 120
 " ignore files
 let g:NERDTreeIgnore = [ "__pycache__" ]
 let g:NERDTreeQuitOnOpen=1
+
+let g:gutentags_file_list_command = 'rg --files'
+let g:gutentags_cache_dir = "~/.local/share/ctags"
 
 " format tf on save
 let g:terraform_fmt_on_save=1
@@ -110,7 +125,8 @@ nnoremap <leader>vr :source $MYVIMRC<CR>
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>z :RgRaw -g % ' '<CR>
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>t :BTags<CR>
+nnoremap <leader>T :Tags<CR>
 nnoremap <leader>C :History:<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 vnoremap <C-C> "+y :exec "echo 'copied to clipboard'"<CR>h
@@ -147,6 +163,12 @@ nnoremap <silent><nowait> <leader>cs :<C-u>CocList -I symbols<CR>
 nnoremap <silent><nowait> <leader>cj :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <leader>ck :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <leader>cr :<C-u>CocListResume<CR>
+
+" class/func text objects
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
