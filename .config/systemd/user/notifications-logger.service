@@ -1,0 +1,8 @@
+[Unit]
+Description=DBus Notifications logger
+
+[Service]
+ExecStart=/bin/bash -c 'busctl --user monitor --match "destination=org.freedesktop.Notifications,member=Notify" -j | jq --unbuffered -r \'.payload.data | [.[] | select(. | type == "string")] | join(" - ")\''
+
+[Install]
+WantedBy=default.target
