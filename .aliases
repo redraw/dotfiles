@@ -8,3 +8,4 @@ alias lan='ip -f inet addr show dev $(ip -j route show default | jq -r ".[0].dev
 alias lastcharge='tac /var/lib/upower/history-charge* | grep -E "\s(charging|fully-charged)" | head -n1 | cut -f1 | xargs -I{} date -Isecond -d @{}'
 alias sincelastcharge='lastcharge | pyp "datetime.datetime.now(pytz.utc) - datetime.datetime.fromisoformat(x)"'
 alias vim=nvim
+alias fing='sudo nmap -sn -T4'
