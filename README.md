@@ -11,7 +11,7 @@ curl https://raw.githubusercontent.com/redraw/dotfiles/master/.dotfiles/install.
 ### Try it on Docker
 You can try it inside a docker container (user/pass `tester`)
 ```bash
-docker run -it --rm redraw/dotfiles
+docker run -it --rm ghcr.io/redraw/dotfiles
 ```
 
 ### Install recipes
