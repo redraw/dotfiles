@@ -6,7 +6,7 @@ RECIPES="$HOME/.dotfiles/recipes"
 # base packages
 info "Installing packages required for setup..."
 sudo apt update
-sudo apt install -qq \
+sudo apt install -y -qq \
     git \
     zsh \
     wget \
@@ -15,6 +15,7 @@ sudo apt install -qq \
     dialog
 
 # configure git
+info "Configure git"
 if [ ! -f $HOME/.gitconfig ]; then
     git config --global user.email $(read -p "[git] email: " email; echo $email)
     git config --global user.name $(read -p "[git] username: " name; echo $name)

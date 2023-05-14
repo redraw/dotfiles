@@ -14,7 +14,11 @@ done
 
 # checkout
 dotfiles checkout
-dotfiles config status.showUntrackedFiles no
-dotfiles remote set-url origin git@github.com:redraw/dotfiles.git
+dotfiles config core.bare false
+
+mv -v $GIT_DIR $HOME/.git
+
+git config status.showUntrackedFiles no
+git remote set-url origin git@github.com:redraw/dotfiles.git
 
 echo -e "\e[1m install tools running .dotfiles/setup.sh \e[0m"

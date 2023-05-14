@@ -5,7 +5,7 @@
         {
             "before": [
                 "<leader>",
-                "s"
+                "w"
             ],
             "commands": [
                 "workbench.action.files.save"
@@ -14,7 +14,7 @@
         {
             "before": [
                 "<leader>",
-                "x"
+                "c"
             ],
             "commands": [
                 "workbench.action.closeActiveEditor"
@@ -32,12 +32,25 @@
     ],
     "vim.handleKeys": {
         "<C-d>": true,
-        "<C-n>": false
+        "<C-n>": false,
     },
-    "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "modifications",
     "[vue]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "Vue.volar"
     },
     "vetur.format.defaultFormatter.js": "prettier-eslint",
+    "files.associations": {
+        "*.tidal": "haskell"
+    },
+    "terminal.integrated.fontFamily": "'monospace'",
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "python.venvFolders": [
+        "~/.cache/pypoetry/virtualenvs/"
+    ],
+    "[python]": {
+        "editor.formatOnType": true
+    },
 }

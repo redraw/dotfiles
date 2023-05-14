@@ -1,5 +1,4 @@
 alias o='xdg-open'
-alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias filesize='numfmt --to iec'
 alias reload='. ~/.zshrc && echo "reloaded ~/.zshrc!"'
 alias k='kubectl'
@@ -8,4 +7,6 @@ alias lan='ip -f inet addr show dev $(ip -j route show default | jq -r ".[0].dev
 alias lastcharge='tac /var/lib/upower/history-charge* | grep -E "\s(charging|fully-charged)" | head -n1 | cut -f1 | xargs -I{} date -Isecond -d @{}'
 alias sincelastcharge='lastcharge | pyp "datetime.datetime.now(pytz.utc) - datetime.datetime.fromisoformat(x)"'
 alias vim=nvim
+alias cast='cast -n Comedor'
+alias rec='cd ~/rec && jack_capture -f mp3 -c 1 -p "system:capture*"'
 alias fing='sudo nmap -sn -T4'

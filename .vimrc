@@ -1,4 +1,4 @@
-call plug#begin()
+call plug#begin("~/.vim/plugged")
 " editor
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -7,7 +7,6 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'jesseleite/vim-agriculture'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'preservim/nerdtree'
 Plug 'liuchengxu/vista.vim'
@@ -16,14 +15,12 @@ Plug 'chrisbra/unicode.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'sheerun/vim-polyglot'
 Plug 'honza/vim-snippets'
+" Plug 'tidalcycles/vim-tidal'
 
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'mhinz/vim-signify'
-
-" python
-Plug 'psf/black', { 'branch': 'stable' }
 
 Plug 'flazz/vim-colorschemes'
 Plug 'ap/vim-buftabline'
@@ -88,9 +85,6 @@ let g:airline#extensions#tagbar#flags = 'f'
 " let g:UltiSnipsJumpForwardTrigger = "<tab>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" black
-let g:black_linelength = 120
-
 " ignore files
 let g:NERDTreeIgnore = [ "__pycache__" ]
 let g:NERDTreeQuitOnOpen=1
@@ -120,18 +114,18 @@ nmap <leader>* <Plug>RgRawWordUnderCursor
 nmap <leader>rg :Rg<CR>
 nnoremap <leader>x :bd!<CR>
 nnoremap <leader>h :set hlsearch!<CR>
-nnoremap <leader>f :Files<CR>
+nnoremap <leader>f :GitFiles<CR>
+nnoremap <leader>F :Files<CR>
 nnoremap <leader>vr :source $MYVIMRC<CR>
 nnoremap <leader>ve :e $MYVIMRC<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>z :RgRaw -g % ' '<CR>
-nnoremap <leader>t :BTags<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>T :Tags<CR>
 nnoremap <leader>C :History:<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 vnoremap <C-C> "+y :exec "echo 'copied to clipboard'"<CR>h
 nmap <leader>R gg=G<C-o><C-o>
-" nmap =j :%!python -m json.tool<CR>
 
 " ### coc.nvim START ###
 " Add `:Format` command to format current buffer.
@@ -151,7 +145,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-nmap <silent> <leader>F :Format<CR>
+nmap <silent> <leader>cf :Format<CR>
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr><c-space> coc#refresh()
 
 " Mappings for CoCList
 nnoremap <silent><nowait> <leader>cl :<C-u>CocList<CR>
@@ -189,9 +186,10 @@ vnoremap <leader>gg :GBrowse<CR>
 
 augroup vimrc
   autocmd!
-  autocmd FileType javascript,yaml,json,markdown,terraform,tf,html,css,dosini,vue setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  autocmd FileType go setlocal noexpandtab
-  autocmd FileType python setlocal foldmethod=indent
+  autocmd FileType javascript,yaml,json,markdown,terraform,tf,html,css,dosini,vue set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd FileType go set noexpandtab
+  autocmd FileType python set foldmethod=indent
+  autocmd BufNewFile,BufRead *.liq set filetype=liquidsoap
   autocmd BufNewFile,BufRead */.kube/config set filetype=yaml
   autocmd InsertEnter,InsertLeave * set cul!
 augroup END
