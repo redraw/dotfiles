@@ -30,3 +30,6 @@
     if ! (( ($i + 1 ) % 8 )); then echo ; fi ;
   done
 }
+
+,summ-web() { curl -sL $1 | strip-tags "${2:-body}" | llm -s "summarize the following text in the language it is written:" | fmt }
+,summ-video() { vid=$1; lang=${2:-es}; yt-dlp -q --write-auto-sub --sub-lang $lang --skip-download -o sub $vid && llm -s "summarize" < sub.$lang.vtt | fmt && rm sub.$lang.vtt }
