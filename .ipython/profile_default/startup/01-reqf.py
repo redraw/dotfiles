@@ -1,4 +1,4 @@
-""" ~/.ipython/profile_default/startup/00-sqlf.py
+""" ~/.ipython/profile_default/startup/01-reqf.py
 Format response objects from psf/requests library.
 
 Example:
@@ -34,7 +34,7 @@ def print_response(response):
     if "application/json" in response.headers["content-type"]:
         print(json.dumps(response.json(), indent=2))
     else:
-        print(response.text)
+        print(response.content)
 
     
 @needs_local_scope
